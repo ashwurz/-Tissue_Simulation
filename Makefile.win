@@ -1,0 +1,30 @@
+# Project: ProjectOpenGLDefault
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"D:/Programas/Dev-Cpp/lib" -L"D:/Programas/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc -L"D:/OpenGL/freeglut/lib" -lfreeglut -lopengl32 -lglu32  
+INCS     = -I"D:/Programas/Dev-Cpp/include"  -I"D:/OpenGL/freeglut/include" 
+CXXINCS  = -I"D:/Programas/Dev-Cpp/include"  -I"D:/OpenGL/freeglut/include" 
+BIN      = ProjectOpenGLDefault.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ProjectOpenGLDefault.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ProjectOpenGLDefault.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
